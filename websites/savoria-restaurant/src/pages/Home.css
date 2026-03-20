@@ -1,0 +1,491 @@
+/* ============================================
+   HOME PAGE
+   ============================================ */
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(13, 13, 13, 0.5) 0%,
+    rgba(13, 13, 13, 0.7) 50%,
+    rgba(13, 13, 13, 0.95) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 2rem;
+  animation: fadeInUp 1.2s ease;
+}
+
+.hero-tagline-top {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 1s ease 0.4s both;
+}
+
+.hero-line {
+  width: 80px;
+  height: 2px;
+  background: var(--gold);
+  margin: 0 auto 1.5rem;
+  animation: fadeInUp 1s ease 0.6s both;
+}
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--cream);
+  letter-spacing: 3px;
+  margin-bottom: 2.5rem;
+  font-style: italic;
+  font-weight: 300;
+  animation: fadeInUp 1s ease 0.8s both;
+}
+
+.hero-cta {
+  animation: fadeInUp 1s ease 1s both;
+}
+
+.hero-cta:hover {
+  animation: pulse 2s infinite;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeIn 1.5s ease 1.5s both;
+}
+
+.hero-scroll span {
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 40px;
+  background: var(--gold);
+  animation: scrollPulse 2s infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; height: 40px; }
+  50% { opacity: 1; height: 60px; }
+}
+
+/* Section Label */
+.section-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+/* Philosophy */
+.philosophy {
+  background: var(--charcoal);
+}
+
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.philosophy-image {
+  position: relative;
+}
+
+.philosophy-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.philosophy-image-border {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: -20px;
+  bottom: -20px;
+  border: 1px solid var(--gold);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.philosophy-content h2 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.3;
+}
+
+.philosophy-content p {
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+/* Featured Dishes */
+.featured {
+  background: var(--black);
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.dish-card {
+  background: var(--charcoal);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.dish-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.dish-image-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.dish-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.dish-card:hover .dish-image-wrap img {
+  transform: scale(1.1);
+}
+
+.dish-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 13, 13, 0.8), transparent);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 1.2rem;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.dish-card:hover .dish-overlay {
+  opacity: 1;
+}
+
+.dish-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.dish-info {
+  padding: 1.5rem;
+}
+
+.dish-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--cream);
+}
+
+.dish-info p {
+  font-size: 0.85rem;
+  color: var(--gray);
+  line-height: 1.6;
+}
+
+/* Testimonials */
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.testimonials-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.testimonials-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonials-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.92);
+}
+
+.testimonials-container {
+  position: relative;
+  z-index: 2;
+}
+
+.testimonials-slider {
+  position: relative;
+  min-height: 200px;
+  margin: 3rem 0 2rem;
+}
+
+.testimonial-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+  pointer-events: none;
+}
+
+.testimonial-slide.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  color: var(--cream);
+  line-height: 1.8;
+  font-style: italic;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.author-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.author-role {
+  font-size: 0.85rem;
+  color: var(--gray);
+  letter-spacing: 1px;
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.dot.active {
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.4);
+}
+
+/* Gallery */
+.gallery {
+  background: var(--charcoal);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(201, 168, 76, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition);
+  color: var(--cream);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* CTA Banner */
+.cta-banner {
+  padding: 6rem 0;
+  background: var(--black);
+}
+
+.cta-inner {
+  text-align: center;
+  padding: 4rem 2rem;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(13, 13, 13, 0.9));
+}
+
+.cta-inner h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.cta-inner p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--gray-light);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .philosophy-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .philosophy-image img {
+    height: 350px;
+  }
+
+  .philosophy-image-border {
+    display: none;
+  }
+
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 600px;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dish-image-wrap {
+    height: 220px;
+  }
+
+  .cta-inner {
+    padding: 3rem 1.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+}

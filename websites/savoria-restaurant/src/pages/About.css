@@ -1,0 +1,374 @@
+/* ============================================
+   ABOUT PAGE
+   ============================================ */
+
+.about-hero {
+  position: relative;
+  height: 50vh;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=800') center/cover no-repeat;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.82);
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.about-hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.about-hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Intro */
+.about-intro {
+  background: var(--black);
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-intro-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.about-intro-content h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.about-intro-content p {
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.about-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--gold);
+  border-left: 2px solid var(--gold);
+  padding-left: 1.5rem;
+  margin-top: 2rem;
+  line-height: 1.8;
+}
+
+/* Timeline */
+.timeline-section {
+  background: var(--charcoal);
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 3rem auto 0;
+  padding: 2rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1.5rem 0;
+}
+
+.timeline-item.left {
+  padding-right: 3rem;
+  text-align: right;
+}
+
+.timeline-item.right {
+  margin-left: 50%;
+  padding-left: 3rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 2rem;
+  width: 14px;
+  height: 14px;
+  background: var(--gold);
+  border-radius: 50%;
+  border: 3px solid var(--charcoal);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
+}
+
+.timeline-item.left .timeline-dot {
+  right: -7px;
+}
+
+.timeline-item.right .timeline-dot {
+  left: -7px;
+}
+
+.timeline-year {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--cream);
+}
+
+.timeline-content p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* Parallax Break */
+.parallax-break {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
+
+.parallax-break img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  position: absolute;
+  top: -10%;
+}
+
+.parallax-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-text h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  text-align: center;
+  color: var(--cream);
+  font-style: italic;
+}
+
+/* Team */
+.team-section {
+  background: var(--black);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.team-card {
+  overflow: hidden;
+  transition: transform var(--transition);
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+}
+
+.team-image {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.team-card:hover .team-image img {
+  transform: scale(1.08);
+}
+
+.team-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.team-card:hover .team-overlay {
+  opacity: 1;
+}
+
+.team-overlay p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--cream);
+  text-align: center;
+  line-height: 1.7;
+}
+
+.team-info {
+  padding: 1.2rem;
+  background: var(--charcoal);
+  text-align: center;
+}
+
+.team-info h4 {
+  font-size: 1.1rem;
+  color: var(--cream);
+  margin-bottom: 0.3rem;
+}
+
+.team-info span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: var(--gold);
+  font-style: italic;
+}
+
+/* Awards */
+.awards-section {
+  background: var(--charcoal);
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.award-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  background: rgba(13, 13, 13, 0.5);
+  transition: all var(--transition);
+}
+
+.award-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(201, 168, 76, 0.1);
+}
+
+.award-icon {
+  font-size: 2.5rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.award-card h4 {
+  font-size: 1.2rem;
+  color: var(--cream);
+  margin-bottom: 0.3rem;
+}
+
+.award-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.award-card p {
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-intro-image img {
+    height: 350px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 50px;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .timeline-item.left .timeline-dot,
+  .timeline-item.right .timeline-dot {
+    left: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .awards-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .parallax-break {
+    height: 250px;
+  }
+}

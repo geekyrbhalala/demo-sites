@@ -1,0 +1,287 @@
+/* ============================================
+   REGISTER PAGE
+   ============================================ */
+
+.register-page {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.register-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  min-height: calc(100vh - 80px);
+}
+
+/* Image Side */
+.register-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.register-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.register-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-image-content {
+  text-align: center;
+  padding: 2rem;
+  max-width: 400px;
+}
+
+.register-image-content h2 {
+  font-size: 2.5rem;
+  color: var(--cream);
+  margin: 2rem 0 1rem;
+}
+
+.register-image-content p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--gray-light);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.register-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  text-align: left;
+}
+
+.perk {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--cream);
+  font-size: 0.95rem;
+}
+
+.perk-icon {
+  color: var(--gold);
+  font-size: 1rem;
+}
+
+/* Form Side */
+.register-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--charcoal);
+  padding: 3rem;
+}
+
+.register-form-inner {
+  max-width: 500px;
+  width: 100%;
+}
+
+.register-form-inner h1 {
+  font-size: 2.5rem;
+  color: var(--cream);
+}
+
+.register-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Password Strength */
+.password-strength {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.strength-bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.4s ease, background 0.4s ease;
+}
+
+.strength-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Password Wrap (shared with Login) */
+.register-page .password-wrap {
+  position: relative;
+}
+
+.register-page .password-wrap input {
+  width: 100%;
+  padding: 0.9rem 3rem 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  color: var(--cream);
+  font-size: 1rem;
+  transition: all var(--transition);
+}
+
+.register-page .password-wrap input:focus {
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.register-page .password-wrap input.error {
+  border-color: var(--burgundy);
+}
+
+.register-page .toggle-password {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--gray);
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--transition);
+}
+
+.register-page .toggle-password:hover {
+  color: var(--gold);
+}
+
+/* Terms */
+.terms-group {
+  margin-bottom: 2rem;
+}
+
+.terms-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--gray-light);
+  position: relative;
+  line-height: 1.5;
+}
+
+.terms-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.terms-label .custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.terms-label input:checked + .custom-checkbox {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.terms-label input:checked + .custom-checkbox::after {
+  content: '';
+  width: 6px;
+  height: 10px;
+  border: solid var(--black);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+.terms-label a {
+  color: var(--gold);
+}
+
+.terms-group .error-message {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+/* Submit */
+.register-submit {
+  width: 100%;
+  padding: 1.1rem;
+  font-size: 1rem;
+}
+
+/* Link */
+.register-login-link {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-top: 2rem;
+}
+
+.register-login-link a {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .register-container {
+    grid-template-columns: 1fr;
+  }
+
+  .register-image {
+    display: none;
+  }
+
+  .register-form-panel {
+    min-height: calc(100vh - 80px);
+  }
+}
+
+@media (max-width: 600px) {
+  .register-form-panel {
+    padding: 2rem 1.25rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

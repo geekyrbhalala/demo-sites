@@ -1,0 +1,369 @@
+/* ============================================
+   SAVORIA — Global Styles
+   Dark Luxury Fine Dining Theme
+   ============================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --charcoal: #1a1a1a;
+  --black: #0d0d0d;
+  --gold: #c9a84c;
+  --gold-light: #e8d48b;
+  --cream: #f5f0e8;
+  --burgundy: #6b2737;
+  --white: #ffffff;
+  --gray-light: #b0b0b0;
+  --gray: #777777;
+  --gray-dark: #333333;
+  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-color: var(--black);
+  color: var(--cream);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--cream);
+}
+
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+
+p {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  color: var(--gray-light);
+  line-height: 1.8;
+}
+
+a {
+  text-decoration: none;
+  color: var(--gold);
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--gold-light);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  border: none;
+  outline: none;
+}
+
+input, textarea, select {
+  font-family: 'Raleway', sans-serif;
+  outline: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-padding {
+  padding: 6rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--cream);
+}
+
+.section-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--gold);
+  font-style: italic;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+.gold-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 1.5rem auto;
+}
+
+/* Primary Button */
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: var(--black);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(201, 168, 76, 0.3);
+  color: var(--black);
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btn-secondary:hover {
+  background: var(--gold);
+  color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(201, 168, 76, 0.2);
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Form Elements Global */
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  color: var(--cream);
+  font-size: 1rem;
+  transition: all var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.1);
+}
+
+.form-group input.error,
+.form-group textarea.error,
+.form-group select.error {
+  border-color: var(--burgundy);
+  background: rgba(107, 39, 55, 0.1);
+}
+
+.form-group .error-message {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(201, 168, 76, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-light);
+}
+
+/* Selection */
+::selection {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* Page transition */
+.page-wrapper {
+  animation: fadeIn 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 4rem 0;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 375px) {
+  html {
+    font-size: 14px;
+  }
+}

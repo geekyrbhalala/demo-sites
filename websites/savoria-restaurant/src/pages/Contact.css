@@ -1,0 +1,279 @@
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+
+.contact-hero {
+  position: relative;
+  height: 50vh;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800') center/cover no-repeat;
+}
+
+.contact-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.82);
+}
+
+.contact-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.contact-hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.contact-hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Contact Section */
+.contact-section {
+  background: var(--black);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+/* Contact Form */
+.contact-form-wrap h2 {
+  font-size: 2rem;
+  color: var(--cream);
+}
+
+/* Floating Labels */
+.floating-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.floating-group input,
+.floating-group textarea {
+  width: 100%;
+  padding: 1.2rem 1rem 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-bottom: 2px solid rgba(201, 168, 76, 0.3);
+  color: var(--cream);
+  font-size: 1rem;
+  transition: all var(--transition);
+}
+
+.floating-group label {
+  position: absolute;
+  top: 0.9rem;
+  left: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: var(--gray);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.floating-group.active label {
+  top: 0.2rem;
+  font-size: 0.7rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.floating-group input:focus,
+.floating-group textarea:focus {
+  border-color: var(--gold);
+  border-bottom-color: var(--gold);
+  background: rgba(255, 255, 255, 0.06);
+  outline: none;
+}
+
+.floating-group.has-error input,
+.floating-group.has-error textarea {
+  border-color: var(--burgundy);
+  border-bottom-color: #e74c3c;
+}
+
+.floating-group .error-message {
+  color: #e74c3c;
+  font-size: 0.8rem;
+  margin-top: 0.4rem;
+  display: block;
+  animation: slideDown 0.3s ease;
+}
+
+.contact-submit {
+  width: 100%;
+  padding: 1.1rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+/* Map */
+.contact-map {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.contact-map img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.5) brightness(0.6);
+}
+
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 13, 13, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-pin {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-15px); }
+  60% { transform: translateY(-7px); }
+}
+
+/* Info Cards */
+.info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-card {
+  display: flex;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  background: var(--charcoal);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  transition: all var(--transition);
+}
+
+.info-card:hover {
+  border-color: rgba(201, 168, 76, 0.3);
+  transform: translateX(5px);
+}
+
+.info-card-icon {
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.info-card h4 {
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.info-card p {
+  font-size: 0.9rem;
+  color: var(--gray-light);
+  margin-bottom: 0.15rem;
+}
+
+.info-card a {
+  color: var(--gray-light);
+  transition: color var(--transition);
+}
+
+.info-card a:hover {
+  color: var(--gold);
+}
+
+/* Hours Cards */
+.hours-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hours-card {
+  padding: 1.5rem;
+  background: var(--charcoal);
+  border: 1px solid rgba(201, 168, 76, 0.1);
+  text-align: center;
+}
+
+.hours-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.hours-card p {
+  font-size: 0.85rem;
+  color: var(--gray-light);
+  margin-bottom: 0.3rem;
+}
+
+/* Social */
+.contact-social h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+
+.contact-social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.social-btn {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: all var(--transition);
+}
+
+.social-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hours-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-social-links {
+    justify-content: center;
+  }
+}
