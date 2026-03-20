@@ -1,0 +1,382 @@
+/* ===== REGISTER PAGE ===== */
+.register-page {
+  min-height: 100vh;
+}
+
+.register-container {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  min-height: 100vh;
+}
+
+.register-sidebar {
+  position: relative;
+  display: none;
+}
+
+.register-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.register-sidebar-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(59, 83, 64, 0.9), rgba(43, 43, 43, 0.85));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2.5rem;
+}
+
+.register-sidebar-content {
+  color: var(--white);
+  text-align: center;
+}
+
+.free-week-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.fwb-accent {
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+.fwb-free {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.fwb-note {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.register-sidebar-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.register-sidebar-content > p {
+  opacity: 0.85;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.register-perks {
+  text-align: left;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.register-perks li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.register-perks li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  background: var(--clay-light);
+  border-radius: 50%;
+}
+
+/* ===== REGISTER FORM SIDE ===== */
+.register-form-side {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--mist);
+  overflow-y: auto;
+}
+
+.register-form-container {
+  max-width: 560px;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.register-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.register-logo span {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--charcoal);
+}
+
+.register-form-container h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.register-subtitle {
+  color: var(--stone);
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.register-form .form-group input,
+.register-form .form-group textarea,
+.register-form .form-group select {
+  border-radius: 12px;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--stone);
+  font-size: 0.8rem;
+}
+
+/* Experience Level Buttons */
+.experience-options {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.exp-btn {
+  padding: 0.6rem;
+  border: 2px solid var(--sand);
+  border-radius: 10px;
+  background: var(--white);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  text-align: center;
+}
+
+.exp-btn:hover {
+  border-color: var(--moss);
+}
+
+.exp-btn.active {
+  background: var(--moss);
+  border-color: var(--moss);
+  color: var(--white);
+}
+
+/* Interest Checkboxes */
+.interest-checkboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.interest-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--sand);
+  border-radius: 10px;
+  background: var(--white);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  padding-left: 2.25rem;
+}
+
+.interest-check input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.interest-checkmark {
+  position: absolute;
+  left: 0.75rem;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--sand);
+  border-radius: 3px;
+  background: var(--white);
+  transition: var(--transition);
+}
+
+.interest-check.checked {
+  border-color: var(--moss);
+  background: rgba(59, 83, 64, 0.05);
+}
+
+.interest-check.checked .interest-checkmark {
+  background: var(--moss);
+  border-color: var(--moss);
+}
+
+.interest-check.checked .interest-checkmark::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Agree Checkbox */
+.agree-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.agree-check input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.agree-checkmark {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--sand);
+  border-radius: 3px;
+  background: var(--white);
+  transition: var(--transition);
+}
+
+.agree-check input:checked ~ .agree-checkmark {
+  background: var(--moss);
+  border-color: var(--moss);
+}
+
+.agree-check input:checked ~ .agree-checkmark::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.agree-check a {
+  color: var(--moss);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.register-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.register-login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--stone);
+}
+
+.register-login-link a {
+  color: var(--moss);
+  font-weight: 700;
+}
+
+/* Success Modal */
+.register-success-modal .lotus-animation {
+  margin-bottom: 1rem;
+}
+
+.lotus-svg {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.lotus-petal {
+  transform-origin: 60px 50px;
+  animation: fadeIn 1s ease forwards;
+}
+
+.lp1 { animation-delay: 0.2s; opacity: 0; }
+.lp2 { animation-delay: 0.4s; opacity: 0; }
+.lp3 { animation-delay: 0.6s; opacity: 0; }
+.lp4 { animation-delay: 0.8s; opacity: 0; }
+
+.success-namaste {
+  font-family: var(--font-accent);
+  font-size: 1.75rem;
+  color: var(--clay);
+  margin-bottom: 1.5rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 1024px) {
+  .register-sidebar {
+    display: block;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-container {
+    grid-template-columns: 1fr;
+  }
+
+  .register-form-side {
+    padding: 5rem 1.25rem 2rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .interest-checkboxes {
+    grid-template-columns: 1fr;
+  }
+}

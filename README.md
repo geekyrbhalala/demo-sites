@@ -36,6 +36,9 @@ A monorepo containing production-quality demo websites for different business ve
                │  │ savoria-restaurant-demo    (React+Vite)  │  │
                │  │ luxe-salon-spa-demo        (Vue 3+Vite)  │  │
                │  │ crestview-financial-demo   (React+Vite)  │  │
+               │  │ inkcraft-tattoo-demo       (React+Vite)  │  │
+               │  │ apex-auto-detail-demo      (Vue 3+Vite)  │  │
+               │  │ zenflow-yoga-demo          (React+Vite)  │  │
                │  └─────────────────────────────────────────┘  │
                │                                               │
                │  ┌─────────────────────────────────────────┐  │
@@ -52,6 +55,9 @@ A monorepo containing production-quality demo websites for different business ve
 | **Savoria** | Fine Dining Restaurant | React 18 + Vite | 8 | `http://savoria-restaurant-demo.s3-website-us-east-1.amazonaws.com` |
 | **Luxe Salon & Spa** | Hair Salon & Day Spa | Vue 3 + Vite | 9 | `http://luxe-salon-spa-demo.s3-website-us-east-1.amazonaws.com` |
 | **Crestview Financial** | Mortgage & Financial Advisory | React 18 + Vite | 8 | `http://crestview-financial-demo.s3-website-us-east-1.amazonaws.com` |
+| **Inkcraft Tattoo** | Tattoo & Piercing Studio | React 18 + Vite | 10 | `http://inkcraft-tattoo-demo.s3-website-us-east-1.amazonaws.com` |
+| **Apex Auto Detail** | Car Detailing Business | Vue 3 + Vite | 10 | `http://apex-auto-detail-demo.s3-website-us-east-1.amazonaws.com` |
+| **Zenflow Yoga** | Yoga & Wellness Studio | React 18 + Vite | 10 | `http://zenflow-yoga-demo.s3-website-us-east-1.amazonaws.com` |
 
 ### What Each Website Includes
 
@@ -71,6 +77,9 @@ A monorepo containing production-quality demo websites for different business ve
 | Savoria | Dark luxury, gold accents | `#0d0d0d` `#1a1a1a` `#c9a84c` `#f5f0e8` `#6b2737` | Playfair Display, Cormorant Garamond, Raleway |
 | Luxe | Soft botanical, rose gold | `#fefaf6` `#f4e4de` `#b76e79` `#2d4a3e` `#9cac8b` | Libre Baskerville, Jost, Sacramento |
 | Crestview | Corporate navy, clean authority | `#1a2744` `#3a5a8c` `#ffffff` `#d4a843` `#27ae60` | DM Serif Display, Source Sans 3, IBM Plex Mono |
+| Inkcraft | Dark brutalist, burnt orange | `#0a0a0a` `#f0ece2` `#c4622d` `#a0522d` `#1a1a2e` | Bebas Neue, Syne, Outfit |
+| Apex | Glossy automotive, electric blue | `#111111` `#0066ff` `#2d2d2d` `#ffffff` `#ffd700` | Rajdhani, Barlow, Orbitron |
+| Zenflow | Warm earthy zen, moss green | `#e8ddd3` `#3b5340` `#b8705a` `#2b2b2b` `#f5f2ee` | Fraunces, Nunito Sans, Caveat |
 
 ## Prerequisites
 
@@ -218,6 +227,9 @@ Uses `dorny/paths-filter@v3` to only deploy what changed:
 | `websites/savoria-restaurant/**` | Build and deploy Savoria |
 | `websites/luxe-salon-spa/**` | Build and deploy Luxe |
 | `websites/crestview-financial/**` | Build and deploy Crestview |
+| `websites/inkcraft-tattoo/**` | Build and deploy Inkcraft |
+| `websites/apex-auto-detail/**` | Build and deploy Apex |
+| `websites/zenflow-yoga/**` | Build and deploy Zenflow |
 
 Infrastructure changes also trigger all site deployments (in case bucket config changed).
 
@@ -227,8 +239,11 @@ Infrastructure changes also trigger all site deployments (in case bucket config 
 detect-changes ──┬── deploy-infrastructure (if infra changed)
                  │
                  ├── deploy-savoria    ─┐
-                 ├── deploy-luxe        ├── deployment-summary
-                 └── deploy-crestview  ─┘
+                 ├── deploy-luxe        │
+                 ├── deploy-crestview   ├── deployment-summary
+                 ├── deploy-inkcraft    │
+                 ├── deploy-apex        │
+                 └── deploy-zenflow    ─┘
 ```
 
 - Website jobs run **in parallel**
@@ -252,6 +267,9 @@ Each website has its own README with design choices, page list, and local dev in
 - [Savoria Restaurant](websites/savoria-restaurant/README.md) — Dark luxury fine dining
 - [Luxe Salon & Spa](websites/luxe-salon-spa/README.md) — Soft botanical spa
 - [Crestview Financial](websites/crestview-financial/README.md) — Corporate financial advisory
+- [Inkcraft Tattoo](websites/inkcraft-tattoo/README.md) — Edgy tattoo & piercing studio
+- [Apex Auto Detail](websites/apex-auto-detail/README.md) — Premium car detailing
+- [Zenflow Yoga](websites/zenflow-yoga/README.md) — Serene yoga & wellness studio
 
 ## Project Structure
 
@@ -298,16 +316,41 @@ demo-sites/
 │   │       ├── components/             # Navbar, Footer, ScrollReveal, Modal, StarRating
 │   │       └── views/                  # Home, Services, Booking, Gallery, About, Contact, Login, Register, Admin
 │   │
-│   └── crestview-financial/            # React 18 + Vite
-│       ├── index.html                  # Google Fonts: DM Serif Display, Source Sans 3, IBM Plex Mono
+│   ├── crestview-financial/            # React 18 + Vite
+│   │   ├── index.html                  # Google Fonts: DM Serif Display, Source Sans 3, IBM Plex Mono
+│   │   ├── package.json
+│   │   ├── vite.config.js
+│   │   └── src/
+│   │       ├── main.jsx
+│   │       ├── App.jsx                 # BrowserRouter with routes
+│   │       ├── App.css                 # Global styles + CSS variables
+│   │       ├── components/             # Navbar, Footer, ScrollReveal, Modal, CountUp
+│   │       └── pages/                  # Home, Services, Calculator, About, Contact, Login, Register, Admin
+│   │
+│   ├── inkcraft-tattoo/                # React 18 + Vite
+│   │   ├── index.html                  # Google Fonts: Bebas Neue, Syne, Outfit
+│   │   ├── package.json
+│   │   ├── vite.config.js
+│   │   └── src/
+│   │       ├── components/             # Navbar, Footer, ScrollReveal, Modal
+│   │       └── pages/                  # Home, Portfolio, Artists, Booking, Piercing, Aftercare, Contact, Login, Register, Admin
+│   │
+│   ├── apex-auto-detail/               # Vue 3 + Vite
+│   │   ├── index.html                  # Google Fonts: Rajdhani, Barlow, Orbitron
+│   │   ├── package.json
+│   │   ├── vite.config.js
+│   │   └── src/
+│   │       ├── router/index.js         # Vue Router config
+│   │       ├── components/             # Navbar, Footer, ScrollReveal, Modal
+│   │       └── views/                  # Home, Services, Packages, Booking, Gallery, About, Contact, Login, Register, Admin
+│   │
+│   └── zenflow-yoga/                   # React 18 + Vite
+│       ├── index.html                  # Google Fonts: Fraunces, Nunito Sans, Caveat
 │       ├── package.json
 │       ├── vite.config.js
 │       └── src/
-│           ├── main.jsx
-│           ├── App.jsx                 # BrowserRouter with routes
-│           ├── App.css                 # Global styles + CSS variables
-│           ├── components/             # Navbar, Footer, ScrollReveal, Modal, CountUp
-│           └── pages/                  # Home, Services, Calculator, About, Contact, Login, Register, Admin
+│           ├── components/             # Navbar, Footer, ScrollReveal, Modal
+│           └── pages/                  # Home, Schedule, Classes, Instructors, Pricing, Workshops, Contact, Login, Register, Admin
 │
 └── .github/
     └── workflows/

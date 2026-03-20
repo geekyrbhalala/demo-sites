@@ -1,0 +1,203 @@
+/* PORTFOLIO PAGE */
+.portfolio-hero {
+  padding: 10rem 0 4rem;
+  text-align: center;
+  background: var(--ink-blue);
+  border-bottom: 2px solid var(--warm-gray);
+}
+
+.portfolio-title {
+  font-size: clamp(3rem, 8vw, 7rem);
+  margin-bottom: 1rem;
+}
+
+.portfolio-subtitle {
+  font-family: var(--font-sub);
+  font-size: 1.1rem;
+  color: rgba(240, 236, 226, 0.6);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 2px solid var(--warm-gray);
+  color: rgba(240, 236, 226, 0.6);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--off-white);
+  color: var(--off-white);
+}
+
+.filter-btn.active {
+  background: var(--burnt-orange);
+  border-color: var(--burnt-orange);
+  color: var(--off-white);
+}
+
+.filter-count {
+  font-size: 0.85rem;
+  color: rgba(240, 236, 226, 0.4);
+  margin-bottom: 2rem;
+}
+
+.masonry-grid {
+  columns: 3;
+  column-gap: 1.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.masonry-grid.animating {
+  opacity: 0.3;
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.masonry-item:hover {
+  border-color: var(--burnt-orange);
+}
+
+.masonry-item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: grayscale(40%);
+}
+
+.masonry-item:hover img {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+.masonry-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.95) 0%, transparent 100%);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.masonry-item:hover .masonry-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.masonry-style {
+  display: inline-block;
+  padding: 0.2rem 0.8rem;
+  background: var(--burnt-orange);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.masonry-overlay h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+}
+
+.masonry-artist {
+  font-size: 0.8rem;
+  color: rgba(240, 236, 226, 0.6);
+}
+
+/* Lightbox */
+.lightbox-content {
+  margin-top: -0.5rem;
+}
+
+.lightbox-img {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--warm-gray);
+}
+
+.lightbox-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.lightbox-style {
+  display: inline-block;
+  padding: 0.3rem 1rem;
+  background: var(--burnt-orange);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.lightbox-artist {
+  font-family: var(--font-sub);
+  font-size: 0.9rem;
+  color: rgba(240, 236, 226, 0.6);
+}
+
+@media (max-width: 1024px) {
+  .masonry-grid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-hero {
+    padding: 8rem 0 3rem;
+  }
+  .masonry-grid {
+    columns: 1;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .filter-bar {
+    justify-content: center;
+  }
+  .filter-count {
+    text-align: center;
+  }
+}

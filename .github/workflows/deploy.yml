@@ -21,6 +21,9 @@ jobs:
       site1_changed: ${{ steps.filter.outputs.savoria }}
       site2_changed: ${{ steps.filter.outputs.luxe }}
       site3_changed: ${{ steps.filter.outputs.crestview }}
+      site4_changed: ${{ steps.filter.outputs.inkcraft }}
+      site5_changed: ${{ steps.filter.outputs.apex }}
+      site6_changed: ${{ steps.filter.outputs.zenflow }}
     steps:
       - uses: actions/checkout@v4
 
@@ -37,6 +40,12 @@ jobs:
               - 'websites/luxe-salon-spa/**'
             crestview:
               - 'websites/crestview-financial/**'
+            inkcraft:
+              - 'websites/inkcraft-tattoo/**'
+            apex:
+              - 'websites/apex-auto-detail/**'
+            zenflow:
+              - 'websites/zenflow-yoga/**'
 
   deploy-infrastructure:
     name: Deploy Infrastructure
@@ -188,10 +197,118 @@ jobs:
         working-directory: websites/crestview-financial
         run: aws s3 sync dist/ s3://crestview-financial-demo --delete --region $AWS_REGION
 
+  deploy-inkcraft:
+    name: Deploy Inkcraft Tattoo
+    runs-on: ubuntu-latest
+    needs: [detect-changes, deploy-infrastructure]
+    if: |
+      always() &&
+      (needs.detect-changes.outputs.site4_changed == 'true' || needs.detect-changes.outputs.infra_changed == 'true') &&
+      (needs.deploy-infrastructure.result == 'success' || needs.deploy-infrastructure.result == 'skipped')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: websites/inkcraft-tattoo/package-lock.json
+
+      - name: Install Dependencies
+        working-directory: websites/inkcraft-tattoo
+        run: npm ci
+
+      - name: Build
+        working-directory: websites/inkcraft-tattoo
+        run: npm run build
+
+      - name: Deploy to S3
+        working-directory: websites/inkcraft-tattoo
+        run: aws s3 sync dist/ s3://inkcraft-tattoo-demo --delete --region $AWS_REGION
+
+  deploy-apex:
+    name: Deploy Apex Auto Detail
+    runs-on: ubuntu-latest
+    needs: [detect-changes, deploy-infrastructure]
+    if: |
+      always() &&
+      (needs.detect-changes.outputs.site5_changed == 'true' || needs.detect-changes.outputs.infra_changed == 'true') &&
+      (needs.deploy-infrastructure.result == 'success' || needs.deploy-infrastructure.result == 'skipped')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: websites/apex-auto-detail/package-lock.json
+
+      - name: Install Dependencies
+        working-directory: websites/apex-auto-detail
+        run: npm ci
+
+      - name: Build
+        working-directory: websites/apex-auto-detail
+        run: npm run build
+
+      - name: Deploy to S3
+        working-directory: websites/apex-auto-detail
+        run: aws s3 sync dist/ s3://apex-auto-detail-demo --delete --region $AWS_REGION
+
+  deploy-zenflow:
+    name: Deploy Zenflow Yoga
+    runs-on: ubuntu-latest
+    needs: [detect-changes, deploy-infrastructure]
+    if: |
+      always() &&
+      (needs.detect-changes.outputs.site6_changed == 'true' || needs.detect-changes.outputs.infra_changed == 'true') &&
+      (needs.deploy-infrastructure.result == 'success' || needs.deploy-infrastructure.result == 'skipped')
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ env.AWS_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: websites/zenflow-yoga/package-lock.json
+
+      - name: Install Dependencies
+        working-directory: websites/zenflow-yoga
+        run: npm ci
+
+      - name: Build
+        working-directory: websites/zenflow-yoga
+        run: npm run build
+
+      - name: Deploy to S3
+        working-directory: websites/zenflow-yoga
+        run: aws s3 sync dist/ s3://zenflow-yoga-demo --delete --region $AWS_REGION
+
   deployment-summary:
     name: Deployment Summary
     runs-on: ubuntu-latest
-    needs: [detect-changes, deploy-savoria, deploy-luxe, deploy-crestview]
+    needs: [detect-changes, deploy-savoria, deploy-luxe, deploy-crestview, deploy-inkcraft, deploy-apex, deploy-zenflow]
     if: always()
     steps:
       - name: Generate Summary
@@ -199,6 +316,9 @@ jobs:
           SAVORIA_STATUS="${{ needs.deploy-savoria.result }}"
           LUXE_STATUS="${{ needs.deploy-luxe.result }}"
           CRESTVIEW_STATUS="${{ needs.deploy-crestview.result }}"
+          INKCRAFT_STATUS="${{ needs.deploy-inkcraft.result }}"
+          APEX_STATUS="${{ needs.deploy-apex.result }}"
+          ZENFLOW_STATUS="${{ needs.deploy-zenflow.result }}"
 
           get_badge() {
             case "$1" in
@@ -220,6 +340,9 @@ jobs:
           echo "| Savoria Restaurant | $(get_badge $SAVORIA_STATUS) | http://savoria-restaurant-demo.s3-website-us-east-1.amazonaws.com |" >> $GITHUB_STEP_SUMMARY
           echo "| Luxe Salon & Spa | $(get_badge $LUXE_STATUS) | http://luxe-salon-spa-demo.s3-website-us-east-1.amazonaws.com |" >> $GITHUB_STEP_SUMMARY
           echo "| Crestview Financial | $(get_badge $CRESTVIEW_STATUS) | http://crestview-financial-demo.s3-website-us-east-1.amazonaws.com |" >> $GITHUB_STEP_SUMMARY
+          echo "| Inkcraft Tattoo Studio | $(get_badge $INKCRAFT_STATUS) | http://inkcraft-tattoo-demo.s3-website-us-east-1.amazonaws.com |" >> $GITHUB_STEP_SUMMARY
+          echo "| Apex Auto Detail | $(get_badge $APEX_STATUS) | http://apex-auto-detail-demo.s3-website-us-east-1.amazonaws.com |" >> $GITHUB_STEP_SUMMARY
+          echo "| Zenflow Yoga & Wellness | $(get_badge $ZENFLOW_STATUS) | http://zenflow-yoga-demo.s3-website-us-east-1.amazonaws.com |" >> $GITHUB_STEP_SUMMARY
 
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "---" >> $GITHUB_STEP_SUMMARY

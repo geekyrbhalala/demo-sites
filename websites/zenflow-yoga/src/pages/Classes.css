@@ -1,0 +1,387 @@
+/* ===== CLASSES HERO ===== */
+.classes-hero {
+  padding: 8rem 0 3rem;
+  background: var(--mist);
+  text-align: center;
+}
+
+.classes-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.classes-hero-accent {
+  font-family: var(--font-accent);
+  font-size: 1.5rem;
+  color: var(--clay);
+  margin-bottom: 1rem;
+}
+
+.classes-hero-desc {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--stone);
+  font-size: 1.1rem;
+}
+
+/* ===== CLASS TYPE CARDS ===== */
+.class-types-section {
+  padding: 4rem 0;
+}
+
+.class-type-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: start;
+  margin-bottom: 5rem;
+  padding-bottom: 5rem;
+  border-bottom: 1px solid var(--sand);
+}
+
+.class-type-card:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.class-type-card.reverse {
+  direction: rtl;
+}
+
+.class-type-card.reverse > * {
+  direction: ltr;
+}
+
+.class-type-image-wrap {
+  position: relative;
+}
+
+.class-type-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.class-type-blob {
+  position: absolute;
+  bottom: -15px;
+  right: -15px;
+  width: 150px;
+  height: 150px;
+  background: var(--clay);
+  opacity: 0.12;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: blobMorph 10s ease-in-out infinite;
+  z-index: -1;
+}
+
+.class-type-content h2 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.class-type-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.class-type-duration {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--moss);
+  background: rgba(59, 83, 64, 0.1);
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+}
+
+.class-type-difficulty {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.dot-sm {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sand);
+  display: inline-block;
+}
+
+.dot-sm.filled {
+  background: var(--moss);
+}
+
+.class-type-desc {
+  line-height: 1.8;
+  color: var(--charcoal);
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+.class-type-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.detail-block h4 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--moss);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.detail-block ul {
+  padding-left: 0;
+}
+
+.detail-block li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  opacity: 0.8;
+}
+
+.detail-block li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 6px;
+  height: 6px;
+  background: var(--clay);
+  border-radius: 50%;
+}
+
+.detail-block p {
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  opacity: 0.8;
+  line-height: 1.7;
+}
+
+/* ===== WORKSHOPS IN CLASSES ===== */
+.workshops-section-classes {
+  padding: 6rem 0;
+  background: var(--mist);
+}
+
+.workshops-grid-classes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.workshop-card-classes {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+.workshop-card-classes:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.workshop-date-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--clay);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.workshop-card-classes h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0.25rem;
+}
+
+.workshop-instructor-tag {
+  font-family: var(--font-accent);
+  color: var(--stone);
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+}
+
+.workshop-desc-tag {
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.workshop-footer-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workshop-price-tag {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--moss);
+}
+
+/* ===== PRIVATE SESSIONS ===== */
+.private-section {
+  padding: 6rem 0;
+}
+
+.private-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.private-accent {
+  font-family: var(--font-accent);
+  font-size: 1.3rem;
+  color: var(--clay);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.private-content h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.private-content > p {
+  line-height: 1.8;
+  color: var(--charcoal);
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+.private-features {
+  margin-bottom: 1.5rem;
+}
+
+.private-features li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.private-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 8px;
+  height: 8px;
+  background: var(--moss);
+  border-radius: 50%;
+}
+
+.private-image-wrap img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* ===== CORPORATE ===== */
+.corporate-section {
+  padding: 6rem 0;
+  background: var(--mist);
+}
+
+.corporate-card {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.corporate-card h2 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.corporate-accent {
+  font-family: var(--font-accent);
+  font-size: 1.35rem;
+  color: var(--clay);
+  margin-bottom: 1.25rem;
+}
+
+.corporate-card > p {
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+  opacity: 0.85;
+}
+
+.corporate-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.corporate-feature {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+}
+
+.corporate-feature h4 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.corporate-feature p {
+  font-size: 0.9rem;
+  color: var(--stone);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .classes-hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .class-type-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .class-type-card.reverse {
+    direction: ltr;
+  }
+
+  .class-type-image {
+    height: 280px;
+  }
+
+  .workshops-grid-classes {
+    grid-template-columns: 1fr;
+  }
+
+  .private-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .private-image-wrap img {
+    height: 300px;
+  }
+
+  .corporate-features {
+    grid-template-columns: 1fr;
+  }
+}

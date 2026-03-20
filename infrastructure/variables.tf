@@ -21,3 +21,21 @@ variable "crestview_bucket_name" {
   type        = string
   default     = "crestview-financial-demo"
 }
+
+variable "inkcraft_tattoo_bucket_name" {
+  description = "S3 bucket name for Inkcraft Tattoo Studio website"
+  type        = string
+  default     = "inkcraft-tattoo-demo"
+}
+
+variable "apex_auto_detail_bucket_name" {
+  description = "S3 bucket name for Apex Auto Detail website"
+  type        = string
+  default     = "apex-auto-detail-demo"
+}
+
+variable "zenflow_yoga_bucket_name" {
+  description = "S3 bucket name for Zenflow Yoga & Wellness website"
+  type        = string
+  default     = "zenflow-yoga-demo"
+}

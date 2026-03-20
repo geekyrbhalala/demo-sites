@@ -1,0 +1,453 @@
+/* ADMIN PAGE */
+.admin-page {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+  background: var(--jet-black);
+}
+
+/* Sidebar */
+.admin-sidebar {
+  background: var(--ink-blue);
+  border-right: 2px solid var(--warm-gray);
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.admin-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(240, 236, 226, 0.1);
+}
+
+.admin-logo-main {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  display: block;
+  line-height: 1;
+}
+
+.admin-logo-sub {
+  font-family: var(--font-body);
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  color: var(--burnt-orange);
+  display: block;
+  margin-top: 3px;
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.admin-nav button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(240, 236, 226, 0.6);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: left;
+  width: 100%;
+}
+
+.admin-nav button:hover {
+  color: var(--off-white);
+  background: rgba(240, 236, 226, 0.05);
+}
+
+.admin-nav button.active {
+  color: var(--off-white);
+  background: rgba(196, 98, 45, 0.15);
+  border-left: 3px solid var(--burnt-orange);
+}
+
+.admin-sidebar-footer {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(240, 236, 226, 0.1);
+}
+
+.admin-back-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(240, 236, 226, 0.5);
+  transition: color 0.3s;
+}
+
+.admin-back-link:hover {
+  color: var(--burnt-orange);
+}
+
+/* Main Content */
+.admin-main {
+  padding: 2rem 3rem;
+  overflow-y: auto;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(240, 236, 226, 0.08);
+}
+
+.admin-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+}
+
+.admin-date {
+  font-size: 0.9rem;
+  color: rgba(240, 236, 226, 0.5);
+  margin-top: 0.3rem;
+}
+
+.admin-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-user span {
+  font-size: 0.9rem;
+  color: rgba(240, 236, 226, 0.6);
+}
+
+.admin-avatar {
+  width: 40px;
+  height: 40px;
+  background: var(--burnt-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+}
+
+/* KPI Cards */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  background: var(--ink-blue);
+  border: 2px solid var(--warm-gray);
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  transition: border-color 0.3s;
+}
+
+.kpi-card:hover {
+  border-color: var(--burnt-orange);
+}
+
+.kpi-icon {
+  flex-shrink: 0;
+}
+
+.kpi-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(240, 236, 226, 0.5);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.kpi-value {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  display: block;
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+
+.kpi-change {
+  font-size: 0.75rem;
+  color: var(--burnt-orange);
+  font-weight: 500;
+}
+
+/* Admin Cards */
+.admin-card {
+  background: var(--ink-blue);
+  border: 2px solid var(--warm-gray);
+  margin-bottom: 2rem;
+}
+
+.admin-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(240, 236, 226, 0.08);
+}
+
+.admin-card-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+}
+
+.admin-card-count {
+  font-size: 0.8rem;
+  color: rgba(240, 236, 226, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Table */
+.admin-table-wrap {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th {
+  text-align: left;
+  padding: 1rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(240, 236, 226, 0.4);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(240, 236, 226, 0.08);
+}
+
+.admin-table td {
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  color: rgba(240, 236, 226, 0.75);
+  border-bottom: 1px solid rgba(240, 236, 226, 0.04);
+}
+
+.admin-table tr:hover td {
+  background: rgba(240, 236, 226, 0.02);
+}
+
+.session-id {
+  font-family: monospace;
+  font-size: 0.8rem !important;
+  color: rgba(240, 236, 226, 0.4) !important;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-in-progress {
+  background: rgba(196, 98, 45, 0.2);
+  color: var(--burnt-orange);
+  border: 1px solid rgba(196, 98, 45, 0.4);
+}
+
+.status-upcoming {
+  background: rgba(52, 152, 219, 0.15);
+  color: #5dade2;
+  border: 1px solid rgba(52, 152, 219, 0.3);
+}
+
+.status-completed {
+  background: rgba(39, 174, 96, 0.15);
+  color: #27ae60;
+  border: 1px solid rgba(39, 174, 96, 0.3);
+}
+
+/* Artist Schedule */
+.artist-schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.schedule-card {
+  padding: 1.5rem;
+  border: 1px solid rgba(240, 236, 226, 0.1);
+  background: rgba(10, 10, 10, 0.3);
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.schedule-header h3 {
+  font-family: var(--font-sub);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.status-dot {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+}
+
+.status-dot.status-busy {
+  color: var(--burnt-orange);
+  background: rgba(196, 98, 45, 0.15);
+}
+
+.status-dot.status-available {
+  color: #27ae60;
+  background: rgba(39, 174, 96, 0.15);
+}
+
+.status-dot.status-off {
+  color: rgba(240, 236, 226, 0.4);
+  background: rgba(240, 236, 226, 0.05);
+}
+
+.schedule-detail {
+  margin-bottom: 0.5rem;
+}
+
+.schedule-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(240, 236, 226, 0.3);
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.schedule-detail span:last-child {
+  font-size: 0.85rem;
+  color: rgba(240, 236, 226, 0.6);
+}
+
+.schedule-bookings {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(240, 236, 226, 0.06);
+  font-size: 0.8rem;
+  color: rgba(240, 236, 226, 0.4);
+}
+
+/* Bookings Feed */
+.bookings-feed {
+  padding: 1.5rem 2rem;
+}
+
+.booking-feed-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(240, 236, 226, 0.05);
+  align-items: flex-start;
+}
+
+.booking-feed-item:last-child {
+  border-bottom: none;
+}
+
+.booking-feed-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--burnt-orange);
+  border-radius: 50%;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+.booking-feed-main {
+  font-size: 0.9rem;
+  color: rgba(240, 236, 226, 0.75);
+  line-height: 1.5;
+}
+
+.booking-feed-main strong {
+  color: var(--off-white);
+}
+
+.booking-type-tag {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  background: rgba(196, 98, 45, 0.15);
+  font-size: 0.75rem;
+  color: var(--burnt-orange);
+  font-weight: 600;
+  margin: 0 0.2rem;
+}
+
+.booking-feed-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  color: rgba(240, 236, 226, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .admin-page {
+    grid-template-columns: 1fr;
+  }
+  .admin-sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    z-index: 100;
+    transition: left 0.3s;
+  }
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .admin-main {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-table th:nth-child(n+4),
+  .admin-table td:nth-child(n+4) {
+    display: none;
+  }
+  .artist-schedule-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

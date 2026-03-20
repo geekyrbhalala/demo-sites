@@ -1,0 +1,137 @@
+/* REGISTER PAGE */
+.register-page {
+  min-height: 100vh;
+}
+
+.register-split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  min-height: 100vh;
+}
+
+.register-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.register-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.35) saturate(0.6);
+}
+
+.register-image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.3) 0%, rgba(196, 98, 45, 0.15) 100%);
+}
+
+.register-image-text {
+  position: absolute;
+  bottom: 4rem;
+  left: 3rem;
+}
+
+.register-image-text h2 {
+  font-size: 5rem;
+  line-height: 0.95;
+  color: var(--off-white);
+  opacity: 0.15;
+}
+
+.register-form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background: var(--jet-black);
+}
+
+.register-form-container {
+  max-width: 520px;
+  width: 100%;
+}
+
+.register-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.register-logo span {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+}
+
+.register-heading {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.register-desc {
+  font-size: 0.95rem;
+  color: rgba(240, 236, 226, 0.6);
+  margin-bottom: 2rem;
+}
+
+.register-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.register-checkboxes {
+  margin: 1.5rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.register-submit {
+  width: 100%;
+  text-align: center;
+}
+
+.register-login-link {
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(240, 236, 226, 0.5);
+  margin-top: 2rem;
+}
+
+.register-login-link a {
+  color: var(--burnt-orange);
+  font-weight: 600;
+  transition: opacity 0.3s;
+}
+
+.register-login-link a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .register-split {
+    grid-template-columns: 1fr;
+  }
+  .register-image {
+    display: none;
+  }
+  .register-form-side {
+    min-height: 100vh;
+    padding: 6rem 1.5rem 3rem;
+    align-items: flex-start;
+  }
+  .register-form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .register-heading {
+    font-size: 1.8rem;
+  }
+}
