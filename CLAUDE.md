@@ -48,6 +48,54 @@ infrastructure/modules/        # Reusable Terraform modules
 
 ---
 
+## Current Websites (6 total)
+
+| # | Website | Folder | Tech | S3 Bucket | Fonts (Heading / Body / Accent) |
+|---|---------|--------|------|-----------|--------------------------------|
+| 1 | Savoria Restaurant | `savoria-restaurant` | React 18 | `savoria-restaurant-demo` | Playfair Display / Raleway / Cormorant Garamond |
+| 2 | Luxe Salon & Spa | `luxe-salon-spa` | Vue 3 | `luxe-salon-spa-demo` | Libre Baskerville / Jost / Sacramento |
+| 3 | Crestview Financial | `crestview-financial` | React 18 | `crestview-financial-demo` | DM Serif Display / Source Sans 3 / IBM Plex Mono |
+| 4 | Inkcraft Tattoo | `inkcraft-tattoo` | React 18 | `inkcraft-tattoo-demo` | Bebas Neue / Outfit / Syne |
+| 5 | Apex Auto Detail | `apex-auto-detail` | Vue 3 | `apex-auto-detail-demo` | Rajdhani / Barlow / Orbitron |
+| 6 | Zenflow Yoga | `zenflow-yoga` | React 18 | `zenflow-yoga-demo` | Fraunces / Nunito Sans / Caveat |
+
+### Design System Reference (avoid collisions when adding new sites)
+
+| Site | Theme Style | Primary | Secondary | Accent | Background |
+|------|------------|---------|-----------|--------|------------|
+| Savoria | Dark luxury, gold | `#0d0d0d` | `#1a1a1a` | `#c9a84c` (gold) | `#0d0d0d` (black) |
+| Luxe | Soft botanical, rose gold | `#b76e79` | `#2d4a3e` | `#9cac8b` (sage) | `#fefaf6` (warm white) |
+| Crestview | Corporate navy, clean | `#1a2744` | `#3a5a8c` | `#d4a843` (gold) | `#ffffff` (white) |
+| Inkcraft | Dark brutalist, orange | `#0a0a0a` | `#1a1a2e` | `#c4622d` (burnt orange) | `#0a0a0a` (black) |
+| Apex | Glossy automotive, blue | `#111111` | `#2d2d2d` | `#0066ff` (electric blue) | `#111111` (black) |
+| Zenflow | Warm earthy zen | `#3b5340` | `#b8705a` | `#9e9585` (stone) | `#e8ddd3` (sand) |
+
+**When adding a 7th+ site**: Pick a primary color family NOT already used (gold, rose, navy, orange, blue, green are taken). Pick 3 Google Fonts not used by any existing site. Choose a distinct aesthetic direction (dark/light, minimal/ornate, warm/cool).
+
+### Pages Per Site
+
+| Site | Pages | Business-Specific Routes |
+|------|-------|------------------------|
+| Savoria | 8 | `/menu`, `/reservations` |
+| Luxe | 9 | `/services`, `/booking`, `/gallery` |
+| Crestview | 8 | `/services`, `/calculator` |
+| Inkcraft | 10 | `/portfolio`, `/artists`, `/booking`, `/piercing`, `/aftercare` |
+| Apex | 10 | `/services`, `/packages`, `/booking`, `/gallery` |
+| Zenflow | 10 | `/schedule`, `/classes`, `/instructors`, `/pricing`, `/workshops` |
+
+### Terraform & CI/CD Reference
+
+| Site | TF Module Name | TF Variable | CI/CD Job | Change Detection Output |
+|------|---------------|-------------|-----------|------------------------|
+| Savoria | `savoria_restaurant` | `savoria_bucket_name` | `deploy-savoria` | `site1_changed` |
+| Luxe | `luxe_salon_spa` | `luxe_bucket_name` | `deploy-luxe` | `site2_changed` |
+| Crestview | `crestview_financial` | `crestview_bucket_name` | `deploy-crestview` | `site3_changed` |
+| Inkcraft | `inkcraft_tattoo` | `inkcraft_tattoo_bucket_name` | `deploy-inkcraft` | `site4_changed` |
+| Apex | `apex_auto_detail` | `apex_auto_detail_bucket_name` | `deploy-apex` | `site5_changed` |
+| Zenflow | `zenflow_yoga` | `zenflow_yoga_bucket_name` | `deploy-zenflow` | `site6_changed` |
+
+---
+
 ## Conventions & Patterns
 
 ### Naming
@@ -459,14 +507,14 @@ deploy-yoursite:
 **4. Add to deployment-summary `needs`**:
 
 ```yaml
-needs: [detect-changes, deploy-savoria, deploy-luxe, deploy-crestview, deploy-yoursite]
+needs: [detect-changes, deploy-savoria, deploy-luxe, deploy-crestview, deploy-inkcraft, deploy-apex, deploy-zenflow, deploy-yoursite]
 ```
 
 ---
 
 ## Step-by-Step: Adding a New Website
 
-This is the complete checklist for adding a 4th (or 5th, 6th...) website to the monorepo.
+This is the complete checklist for adding a 7th (or 8th, 9th...) website to the monorepo.
 
 ### 1. Scaffold the Project
 

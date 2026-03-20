@@ -367,4 +367,4 @@ S3 static hosting costs for demo sites are minimal:
 | S3 Requests | ~$0.004/10,000 GET requests |
 | Data Transfer | First 100 GB/month free |
 
-For demo sites with light traffic, **total cost is essentially $0/month** within AWS Free Tier. Even outside free tier, expect less than $1/month for all three sites combined.
+For demo sites with light traffic, **total cost is essentially $0/month** within AWS Free Tier. Even outside free tier, expect less than $1/month for all six sites combined.
