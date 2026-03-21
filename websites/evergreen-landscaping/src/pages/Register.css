@@ -1,0 +1,250 @@
+/* ========================================
+   Register Layout
+   ======================================== */
+
+.register-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.register-form {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.register-section-title {
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--sage);
+}
+
+.register-section-title h3 {
+  font-size: 1.15rem;
+  color: var(--primary);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Service Interests */
+.service-interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.interest-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 2px solid var(--border);
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  transition: all var(--transition-fast);
+}
+
+.interest-chip:hover {
+  border-color: var(--primary);
+}
+
+.interest-chip.active {
+  background: var(--sage);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.interest-chip input {
+  display: none;
+}
+
+/* Contact Methods */
+.contact-methods {
+  display: flex;
+  gap: 12px;
+}
+
+.method-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.92rem;
+  transition: all var(--transition-fast);
+}
+
+.method-option:hover {
+  border-color: var(--primary);
+}
+
+.method-option.active {
+  background: var(--sage);
+  border-color: var(--primary);
+  font-weight: 600;
+}
+
+.method-option input {
+  display: none;
+}
+
+/* Password Strength */
+.password-strength {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.strength-bars {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.strength-bar {
+  height: 4px;
+  flex: 1;
+  border-radius: 2px;
+  transition: background 0.3s ease;
+}
+
+.strength-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Terms */
+.terms-group {
+  margin-bottom: 24px;
+}
+
+.terms-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.terms-label input {
+  accent-color: var(--primary);
+  margin-top: 3px;
+}
+
+.terms-label a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.register-login-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.92rem;
+  color: var(--text-light);
+}
+
+.register-login-link a {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* ========================================
+   Benefits Sidebar
+   ======================================== */
+
+.register-benefits {
+  position: sticky;
+  top: 120px;
+}
+
+.register-benefits h3 {
+  font-size: 1.4rem;
+  margin-bottom: 28px;
+  color: var(--primary);
+}
+
+.benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.benefit-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.benefit-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sage);
+  border-radius: var(--radius);
+}
+
+.benefit-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--primary);
+}
+
+.benefit-item h4 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  color: var(--charcoal);
+}
+
+.benefit-item p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  margin-bottom: 0;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 768px) {
+  .register-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .register-form {
+    padding: 28px 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-methods {
+    flex-direction: column;
+  }
+
+  .register-benefits {
+    position: static;
+  }
+}

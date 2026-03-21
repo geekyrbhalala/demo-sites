@@ -57,3 +57,53 @@ module "zenflow_yoga" {
     Website = "zenflow-yoga"
   }
 }
+
+module "pristine_cleaning" {
+  source      = "./modules/s3-website"
+  bucket_name = var.pristine_cleaning_bucket_name
+
+  tags = {
+    Project = "demo-sites"
+    Website = "pristine-cleaning"
+  }
+}
+
+module "spice_bazaar" {
+  source      = "./modules/s3-website"
+  bucket_name = var.spice_bazaar_bucket_name
+
+  tags = {
+    Project = "demo-sites"
+    Website = "spice-bazaar-grocery"
+  }
+}
+
+module "harmony_music" {
+  source      = "./modules/s3-website"
+  bucket_name = var.harmony_music_bucket_name
+
+  tags = {
+    Project = "demo-sites"
+    Website = "harmony-music-academy"
+  }
+}
+
+module "evergreen_landscaping" {
+  source      = "./modules/s3-website"
+  bucket_name = var.evergreen_landscaping_bucket_name
+
+  tags = {
+    Project = "demo-sites"
+    Website = "evergreen-landscaping"
+  }
+}
+
+module "northgate_law" {
+  source      = "./modules/s3-website"
+  bucket_name = var.northgate_law_bucket_name
+
+  tags = {
+    Project = "demo-sites"
+    Website = "northgate-law"
+  }
+}

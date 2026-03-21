@@ -1,0 +1,251 @@
+/* ===== Page Hero (shared across pages) ===== */
+.page-hero {
+  position: relative;
+  padding: 160px 0 80px;
+  background: var(--primary);
+  overflow: hidden;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.95), rgba(128, 0, 32, 0.3));
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.page-hero-title {
+  font-size: 3.5rem;
+  color: var(--ivory);
+  margin-bottom: 16px;
+}
+
+.page-hero-subtitle {
+  font-size: 1.15rem;
+  color: rgba(250, 250, 240, 0.7);
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* ===== Quick Nav ===== */
+.pa-quick-nav {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 16px 0;
+}
+
+.pa-nav-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pa-nav-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-light);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.pa-nav-link:hover {
+  color: var(--secondary);
+  background: rgba(128, 0, 32, 0.06);
+}
+
+/* ===== Practice Area Detail ===== */
+.pa-detail {
+  scroll-margin-top: 60px;
+}
+
+.pa-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.pa-detail-grid.reverse {
+  direction: rtl;
+}
+
+.pa-detail-grid.reverse > * {
+  direction: ltr;
+}
+
+.pa-detail-img img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.pa-detail-title {
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.pa-detail-title.light {
+  color: var(--ivory);
+}
+
+.pa-detail-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.section-dark .pa-detail-desc {
+  color: rgba(250, 250, 240, 0.7);
+}
+
+.pa-services-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+  margin-bottom: 24px;
+}
+
+.pa-service-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.section-dark .pa-service-item {
+  color: rgba(250, 250, 240, 0.8);
+}
+
+.pa-lead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  background: rgba(201, 176, 55, 0.08);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.pa-lead-info strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.section-dark .pa-lead-info strong {
+  color: var(--ivory);
+}
+
+.pa-lead-info span {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.section-dark .pa-lead-info span {
+  color: rgba(250, 250, 240, 0.6);
+}
+
+.pa-notable {
+  padding: 12px 16px;
+  background: rgba(128, 0, 32, 0.05);
+  border-radius: var(--radius);
+}
+
+.section-dark .pa-notable {
+  background: rgba(201, 176, 55, 0.1);
+}
+
+.pa-notable-label {
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-dark .pa-notable-label {
+  color: var(--accent);
+}
+
+.pa-notable p {
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+.section-dark .pa-notable p {
+  color: rgba(250, 250, 240, 0.8);
+}
+
+/* CTA Banner reuse */
+.cta-banner {
+  background: var(--secondary);
+  padding: 80px 0;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  color: var(--ivory);
+  margin-bottom: 16px;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  color: rgba(250, 250, 240, 0.8);
+  margin-bottom: 32px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .page-hero-title {
+    font-size: 2.4rem;
+  }
+
+  .pa-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .pa-detail-grid.reverse {
+    direction: ltr;
+  }
+
+  .pa-detail-img img {
+    height: 280px;
+  }
+
+  .pa-services-list {
+    grid-template-columns: 1fr;
+  }
+
+  .pa-nav-links {
+    gap: 8px;
+  }
+
+  .pa-nav-link {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero {
+    padding: 130px 0 60px;
+  }
+
+  .page-hero-title {
+    font-size: 2rem;
+  }
+}

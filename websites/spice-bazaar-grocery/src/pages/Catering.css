@@ -1,0 +1,187 @@
+/* ==========================================
+   Catering Page
+   ========================================== */
+
+.catering-hero {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary-dark) 100%);
+  padding: 8rem 0 3rem;
+  text-align: center;
+  color: var(--cream);
+}
+
+.catering-hero h1 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.catering-hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Packages */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.package-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 2px solid var(--border);
+  transition: all var(--transition);
+  position: relative;
+}
+
+.package-card.popular {
+  border-color: var(--primary);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-warm);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.3rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.package-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--brown);
+  margin-bottom: 0.25rem;
+}
+
+.package-guests {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.package-price {
+  margin-bottom: 1.5rem;
+}
+
+.package-amount {
+  font-size: 2.5rem;
+}
+
+.package-unit {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.package-features {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.package-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.package-features li svg {
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+/* Menu Highlights */
+.menu-highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.menu-highlight {
+  background: var(--cream);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.menu-highlight h4 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--brown);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary);
+}
+
+.menu-highlight ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.menu-highlight ul li:last-child {
+  border-bottom: none;
+}
+
+/* Catering Form */
+.catering-form-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .package-card.popular {
+    transform: none;
+  }
+
+  .menu-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .catering-form-wrapper {
+    padding: 1.5rem;
+  }
+
+  .catering-hero h1 {
+    font-size: 2.2rem;
+  }
+}

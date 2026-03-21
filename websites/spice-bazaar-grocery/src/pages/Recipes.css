@@ -1,0 +1,256 @@
+/* ==========================================
+   Recipes Page
+   ========================================== */
+
+.recipes-hero {
+  background: linear-gradient(135deg, var(--green) 0%, #1B5E20 100%);
+  padding: 8rem 0 3rem;
+  text-align: center;
+  color: var(--cream);
+}
+
+.recipes-hero h1 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.recipes-hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Featured Recipe */
+.featured-recipe {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 0;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.featured-recipe-img {
+  min-height: 500px;
+}
+
+.featured-recipe-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-recipe-content {
+  padding: 2.5rem;
+  overflow-y: auto;
+}
+
+.recipe-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.recipe-tag {
+  background: var(--cream);
+  color: var(--brown);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.featured-recipe-content h3 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--brown);
+  margin-bottom: 0.75rem;
+}
+
+.recipe-meta-row {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.featured-ingredients {
+  margin-bottom: 1.5rem;
+}
+
+.featured-ingredients h4,
+.featured-instructions h4 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--brown);
+  margin-bottom: 0.75rem;
+}
+
+.featured-ingredients ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.featured-ingredients li {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  padding: 0.2rem 0;
+}
+
+.featured-instructions ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+
+.featured-instructions li {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  padding: 0.35rem 0;
+  line-height: 1.6;
+}
+
+/* Filters */
+.recipe-filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.recipe-filter-btn {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--border);
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  transition: all var(--transition-fast);
+}
+
+.recipe-filter-btn:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.recipe-filter-btn.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: var(--white);
+}
+
+/* Recipe Grid */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.recipe-card {
+  border-radius: var(--radius-lg);
+}
+
+.recipe-card-img {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.recipe-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition);
+}
+
+.recipe-card:hover .recipe-card-img img {
+  transform: scale(1.06);
+}
+
+.recipe-difficulty {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--brown);
+  color: var(--cream);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.recipe-card-body {
+  padding: 1.25rem;
+}
+
+.recipe-card-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.recipe-card-tags span {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.recipe-card-body h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--brown);
+  margin-bottom: 0.5rem;
+}
+
+.recipe-card-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 0.75rem;
+}
+
+.recipe-card-ingredients {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.recipe-card-ingredients strong {
+  color: var(--brown);
+}
+
+.recipe-card-ingredients p {
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .featured-recipe {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-recipe-img {
+    min-height: 280px;
+  }
+
+  .recipes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .recipes-hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .recipes-grid {
+    grid-template-columns: 1fr;
+  }
+}

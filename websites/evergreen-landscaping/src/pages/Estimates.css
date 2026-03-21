@@ -1,0 +1,164 @@
+/* ========================================
+   Estimates Layout
+   ======================================== */
+
+.estimates-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.estimates-info h2 {
+  margin-bottom: 32px;
+}
+
+.estimate-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.estimate-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: var(--white);
+  font-family: var(--font-accent);
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+.estimate-step h4 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+  color: var(--charcoal);
+}
+
+.estimate-step p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 0;
+}
+
+.estimate-contact-box {
+  background: var(--sage);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  border-left: 4px solid var(--primary);
+}
+
+.estimate-contact-box h4 {
+  margin-bottom: 8px;
+}
+
+.estimate-contact-box p {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.estimate-phone {
+  font-family: var(--font-accent);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.estimate-hours {
+  font-size: 0.85rem !important;
+  color: var(--text-muted) !important;
+}
+
+/* ========================================
+   Estimates Form
+   ======================================== */
+
+.estimates-form {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.estimates-form h3 {
+  font-size: 1.4rem;
+  margin-bottom: 28px;
+  color: var(--primary);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.service-checkboxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+}
+
+.checkbox-label:hover {
+  border-color: var(--primary);
+}
+
+.checkbox-label.checked {
+  background: var(--sage);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.checkbox-label input {
+  accent-color: var(--primary);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 768px) {
+  .estimates-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .estimates-form {
+    padding: 28px 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .service-checkboxes {
+    grid-template-columns: 1fr;
+  }
+}

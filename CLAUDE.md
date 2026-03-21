@@ -48,7 +48,7 @@ infrastructure/modules/        # Reusable Terraform modules
 
 ---
 
-## Current Websites (6 total)
+## Current Websites (11 total)
 
 | # | Website | Folder | Tech | S3 Bucket | Fonts (Heading / Body / Accent) |
 |---|---------|--------|------|-----------|--------------------------------|
@@ -58,6 +58,11 @@ infrastructure/modules/        # Reusable Terraform modules
 | 4 | Inkcraft Tattoo | `inkcraft-tattoo` | React 18 | `inkcraft-tattoo-demo` | Bebas Neue / Outfit / Syne |
 | 5 | Apex Auto Detail | `apex-auto-detail` | Vue 3 | `apex-auto-detail-demo` | Rajdhani / Barlow / Orbitron |
 | 6 | Zenflow Yoga | `zenflow-yoga` | React 18 | `zenflow-yoga-demo` | Fraunces / Nunito Sans / Caveat |
+| 7 | Pristine Cleaning | `pristine-cleaning` | Vue 3 | `pristine-cleaning-demo` | Poppins / Inter / Space Mono |
+| 8 | Spice Bazaar Grocery | `spice-bazaar-grocery` | React 18 | `spice-bazaar-grocery-demo` | Cormorant Infant / Karla / Fira Code |
+| 9 | Harmony Music Academy | `harmony-music-academy` | Vue 3 | `harmony-music-academy-demo` | Lora / Rubik / JetBrains Mono |
+| 10 | Evergreen Landscaping | `evergreen-landscaping` | React 18 | `evergreen-landscaping-demo` | Merriweather / Open Sans / Inconsolata |
+| 11 | Northgate Law | `northgate-law` | React 18 | `northgate-law-demo` | Crimson Pro / Work Sans / Courier Prime |
 
 ### Design System Reference (avoid collisions when adding new sites)
 
@@ -69,8 +74,13 @@ infrastructure/modules/        # Reusable Terraform modules
 | Inkcraft | Dark brutalist, orange | `#0a0a0a` | `#1a1a2e` | `#c4622d` (burnt orange) | `#0a0a0a` (black) |
 | Apex | Glossy automotive, blue | `#111111` | `#2d2d2d` | `#0066ff` (electric blue) | `#111111` (black) |
 | Zenflow | Warm earthy zen | `#3b5340` | `#b8705a` | `#9e9585` (stone) | `#e8ddd3` (sand) |
+| Pristine | Clean minimal, fresh blue | `#2196F3` | `#1a237e` | `#e0f2f1` (mint) | `#ffffff` (white) |
+| Spice Bazaar | Warm vibrant, saffron | `#E65100` | `#B71C1C` | `#2E7D32` (green) | `#FFF8E1` (cream) |
+| Harmony | Musical elegance, purple | `#4A148C` | `#37474F` | `#FFB300` (gold) | `#FFFDE7` (cream) |
+| Evergreen | Natural earthy, forest | `#1B5E20` | `#795548` | `#FF6D00` (orange) | `#F1F8E9` (sage) |
+| Northgate | Prestigious dark, burgundy | `#1a1a2e` | `#800020` | `#C9B037` (gold) | `#FAFAF0` (ivory) |
 
-**When adding a 7th+ site**: Pick a primary color family NOT already used (gold, rose, navy, orange, blue, green are taken). Pick 3 Google Fonts not used by any existing site. Choose a distinct aesthetic direction (dark/light, minimal/ornate, warm/cool).
+**When adding a 12th+ site**: Pick a primary color family NOT already used (gold, rose, navy, orange, blue, green, sky-blue, saffron, purple, forest, burgundy are taken). Pick 3 Google Fonts not used by any existing site. Choose a distinct aesthetic direction (dark/light, minimal/ornate, warm/cool).
 
 ### Pages Per Site
 
@@ -82,6 +92,11 @@ infrastructure/modules/        # Reusable Terraform modules
 | Inkcraft | 10 | `/portfolio`, `/artists`, `/booking`, `/piercing`, `/aftercare` |
 | Apex | 10 | `/services`, `/packages`, `/booking`, `/gallery` |
 | Zenflow | 10 | `/schedule`, `/classes`, `/instructors`, `/pricing`, `/workshops` |
+| Pristine | 10 | `/services`, `/pricing`, `/booking`, `/gallery` |
+| Spice Bazaar | 10 | `/products`, `/deals`, `/recipes`, `/catering` |
+| Harmony | 10 | `/programs`, `/instructors`, `/schedule`, `/recitals` |
+| Evergreen | 10 | `/services`, `/portfolio`, `/estimates`, `/seasonal` |
+| Northgate | 10 | `/practice-areas`, `/attorneys`, `/results`, `/resources` |
 
 ### Terraform & CI/CD Reference
 
@@ -93,6 +108,11 @@ infrastructure/modules/        # Reusable Terraform modules
 | Inkcraft | `inkcraft_tattoo` | `inkcraft_tattoo_bucket_name` | `deploy-inkcraft` | `site4_changed` |
 | Apex | `apex_auto_detail` | `apex_auto_detail_bucket_name` | `deploy-apex` | `site5_changed` |
 | Zenflow | `zenflow_yoga` | `zenflow_yoga_bucket_name` | `deploy-zenflow` | `site6_changed` |
+| Pristine | `pristine_cleaning` | `pristine_cleaning_bucket_name` | `deploy-pristine` | `site7_changed` |
+| Spice Bazaar | `spice_bazaar` | `spice_bazaar_bucket_name` | `deploy-spice-bazaar` | `site8_changed` |
+| Harmony | `harmony_music` | `harmony_music_bucket_name` | `deploy-harmony` | `site9_changed` |
+| Evergreen | `evergreen_landscaping` | `evergreen_landscaping_bucket_name` | `deploy-evergreen` | `site10_changed` |
+| Northgate | `northgate_law` | `northgate_law_bucket_name` | `deploy-northgate` | `site11_changed` |
 
 ---
 
@@ -507,14 +527,14 @@ deploy-yoursite:
 **4. Add to deployment-summary `needs`**:
 
 ```yaml
-needs: [detect-changes, deploy-savoria, deploy-luxe, deploy-crestview, deploy-inkcraft, deploy-apex, deploy-zenflow, deploy-yoursite]
+needs: [detect-changes, deploy-savoria, deploy-luxe, deploy-crestview, deploy-inkcraft, deploy-apex, deploy-zenflow, deploy-pristine, deploy-spice-bazaar, deploy-harmony, deploy-evergreen, deploy-northgate, deploy-yoursite]
 ```
 
 ---
 
 ## Step-by-Step: Adding a New Website
 
-This is the complete checklist for adding a 7th (or 8th, 9th...) website to the monorepo.
+This is the complete checklist for adding a 12th (or 13th, 14th...) website to the monorepo.
 
 ### 1. Scaffold the Project
 

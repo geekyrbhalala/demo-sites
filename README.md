@@ -39,6 +39,11 @@ A monorepo containing production-quality demo websites for different business ve
                │  │ inkcraft-tattoo-demo       (React+Vite)  │  │
                │  │ apex-auto-detail-demo      (Vue 3+Vite)  │  │
                │  │ zenflow-yoga-demo          (React+Vite)  │  │
+               │  │ pristine-cleaning-demo     (Vue 3+Vite)  │  │
+               │  │ spice-bazaar-grocery-demo  (React+Vite)  │  │
+               │  │ harmony-music-academy-demo (Vue 3+Vite)  │  │
+               │  │ evergreen-landscaping-demo (React+Vite)  │  │
+               │  │ northgate-law-demo         (React+Vite)  │  │
                │  └─────────────────────────────────────────┘  │
                │                                               │
                │  ┌─────────────────────────────────────────┐  │
@@ -50,18 +55,25 @@ A monorepo containing production-quality demo websites for different business ve
 
 ## Websites
 
-| Website | Business Type | Tech Stack | Pages | S3 URL |
-|---------|--------------|------------|-------|--------|
-| **Savoria** | Fine Dining Restaurant | React 18 + Vite | 8 | `http://savoria-restaurant-demo.s3-website-us-east-1.amazonaws.com` |
-| **Luxe Salon & Spa** | Hair Salon & Day Spa | Vue 3 + Vite | 9 | `http://luxe-salon-spa-demo.s3-website-us-east-1.amazonaws.com` |
-| **Crestview Financial** | Mortgage & Financial Advisory | React 18 + Vite | 8 | `http://crestview-financial-demo.s3-website-us-east-1.amazonaws.com` |
-| **Inkcraft Tattoo** | Tattoo & Piercing Studio | React 18 + Vite | 10 | `http://inkcraft-tattoo-demo.s3-website-us-east-1.amazonaws.com` |
-| **Apex Auto Detail** | Car Detailing Business | Vue 3 + Vite | 10 | `http://apex-auto-detail-demo.s3-website-us-east-1.amazonaws.com` |
-| **Zenflow Yoga** | Yoga & Wellness Studio | React 18 + Vite | 10 | `http://zenflow-yoga-demo.s3-website-us-east-1.amazonaws.com` |
+| # | Website | Business Type | Tech Stack | Pages |
+|---|---------|--------------|------------|-------|
+| 1 | **Savoria Restaurant** | Fine Dining Restaurant | React 18 + Vite | 8 |
+| 2 | **Luxe Salon & Spa** | Hair Salon & Day Spa | Vue 3 + Vite | 9 |
+| 3 | **Crestview Financial** | Mortgage & Financial Advisory | React 18 + Vite | 8 |
+| 4 | **Inkcraft Tattoo** | Tattoo & Piercing Studio | React 18 + Vite | 10 |
+| 5 | **Apex Auto Detail** | Car Detailing Business | Vue 3 + Vite | 10 |
+| 6 | **Zenflow Yoga** | Yoga & Wellness Studio | React 18 + Vite | 10 |
+| 7 | **Pristine Cleaning** | Residential & Commercial Cleaning | Vue 3 + Vite | 10 |
+| 8 | **Spice Bazaar Grocery** | Artisanal Indian Grocery | React 18 + Vite | 10 |
+| 9 | **Harmony Music Academy** | Music School & Lessons | Vue 3 + Vite | 10 |
+| 10 | **Evergreen Landscaping** | Landscaping & Outdoor Design | React 18 + Vite | 10 |
+| 11 | **Northgate Law** | Law Firm & Legal Services | React 18 + Vite | 10 |
+
+> **Note:** Live deployment URLs are available in the GitHub Actions deployment summary (not published here for privacy).
 
 ### What Each Website Includes
 
-- **8-9 fully routed pages**: Home, Services/Menu, Booking/Reservations/Calculator, About, Contact, Login, Register, Admin Dashboard
+- **8-10 fully routed pages**: Home, Services/Menu, Booking/Reservations/Calculator, About, Contact, Login, Register, Admin Dashboard, plus business-specific pages
 - **Custom CSS**: Unique design system per site — no CSS frameworks (no Tailwind, Bootstrap, etc.)
 - **Responsive design**: Optimized for mobile (375px), tablet (768px), and desktop (1440px+)
 - **Scroll animations**: IntersectionObserver-based reveal effects on all sections
@@ -80,6 +92,11 @@ A monorepo containing production-quality demo websites for different business ve
 | Inkcraft | Dark brutalist, burnt orange | `#0a0a0a` `#f0ece2` `#c4622d` `#a0522d` `#1a1a2e` | Bebas Neue, Syne, Outfit |
 | Apex | Glossy automotive, electric blue | `#111111` `#0066ff` `#2d2d2d` `#ffffff` `#ffd700` | Rajdhani, Barlow, Orbitron |
 | Zenflow | Warm earthy zen, moss green | `#e8ddd3` `#3b5340` `#b8705a` `#2b2b2b` `#f5f2ee` | Fraunces, Nunito Sans, Caveat |
+| Pristine | Clean minimal, fresh blue | `#ffffff` `#2196F3` `#1a237e` `#f5f5f5` `#e0f2f1` | Poppins, Inter, Space Mono |
+| Spice Bazaar | Warm vibrant, saffron | `#E65100` `#B71C1C` `#FFF8E1` `#5D4037` `#2E7D32` | Cormorant Infant, Karla, Fira Code |
+| Harmony | Musical elegance, purple/gold | `#4A148C` `#FFB300` `#FFFDE7` `#37474F` `#C2185B` | Lora, Rubik, JetBrains Mono |
+| Evergreen | Natural earthy, forest green | `#1B5E20` `#795548` `#8BC34A` `#F1F8E9` `#FF6D00` | Merriweather, Open Sans, Inconsolata |
+| Northgate | Prestigious dark, burgundy/gold | `#1a1a2e` `#800020` `#C9B037` `#FAFAF0` `#607D8B` | Crimson Pro, Work Sans, Courier Prime |
 
 ## Prerequisites
 
@@ -230,6 +247,11 @@ Uses `dorny/paths-filter@v3` to only deploy what changed:
 | `websites/inkcraft-tattoo/**` | Build and deploy Inkcraft |
 | `websites/apex-auto-detail/**` | Build and deploy Apex |
 | `websites/zenflow-yoga/**` | Build and deploy Zenflow |
+| `websites/pristine-cleaning/**` | Build and deploy Pristine |
+| `websites/spice-bazaar-grocery/**` | Build and deploy Spice Bazaar |
+| `websites/harmony-music-academy/**` | Build and deploy Harmony |
+| `websites/evergreen-landscaping/**` | Build and deploy Evergreen |
+| `websites/northgate-law/**` | Build and deploy Northgate |
 
 Infrastructure changes also trigger all site deployments (in case bucket config changed).
 
@@ -238,12 +260,17 @@ Infrastructure changes also trigger all site deployments (in case bucket config 
 ```
 detect-changes ──┬── deploy-infrastructure (if infra changed)
                  │
-                 ├── deploy-savoria    ─┐
-                 ├── deploy-luxe        │
-                 ├── deploy-crestview   ├── deployment-summary
-                 ├── deploy-inkcraft    │
-                 ├── deploy-apex        │
-                 └── deploy-zenflow    ─┘
+                 ├── deploy-savoria      ─┐
+                 ├── deploy-luxe          │
+                 ├── deploy-crestview     │
+                 ├── deploy-inkcraft      │
+                 ├── deploy-apex          │
+                 ├── deploy-zenflow       ├── deployment-summary
+                 ├── deploy-pristine      │
+                 ├── deploy-spice-bazaar  │
+                 ├── deploy-harmony       │
+                 ├── deploy-evergreen     │
+                 └── deploy-northgate    ─┘
 ```
 
 - Website jobs run **in parallel**
@@ -270,6 +297,11 @@ Each website has its own README with design choices, page list, and local dev in
 - [Inkcraft Tattoo](websites/inkcraft-tattoo/README.md) — Edgy tattoo & piercing studio
 - [Apex Auto Detail](websites/apex-auto-detail/README.md) — Premium car detailing
 - [Zenflow Yoga](websites/zenflow-yoga/README.md) — Serene yoga & wellness studio
+- [Pristine Cleaning](websites/pristine-cleaning/README.md) — Fresh minimal cleaning service
+- [Spice Bazaar Grocery](websites/spice-bazaar-grocery/README.md) — Warm vibrant Indian grocery
+- [Harmony Music Academy](websites/harmony-music-academy/README.md) — Elegant music school
+- [Evergreen Landscaping](websites/evergreen-landscaping/README.md) — Natural landscaping & outdoor design
+- [Northgate Law](websites/northgate-law/README.md) — Prestigious law firm
 
 ## Project Structure
 
@@ -336,21 +368,25 @@ demo-sites/
 │   │       └── pages/                  # Home, Portfolio, Artists, Booking, Piercing, Aftercare, Contact, Login, Register, Admin
 │   │
 │   ├── apex-auto-detail/               # Vue 3 + Vite
-│   │   ├── index.html                  # Google Fonts: Rajdhani, Barlow, Orbitron
-│   │   ├── package.json
-│   │   ├── vite.config.js
-│   │   └── src/
-│   │       ├── router/index.js         # Vue Router config
-│   │       ├── components/             # Navbar, Footer, ScrollReveal, Modal
-│   │       └── views/                  # Home, Services, Packages, Booking, Gallery, About, Contact, Login, Register, Admin
+│   │   └── src/views/                  # Home, Services, Packages, Booking, Gallery, About, Contact, Login, Register, Admin
 │   │
-│   └── zenflow-yoga/                   # React 18 + Vite
-│       ├── index.html                  # Google Fonts: Fraunces, Nunito Sans, Caveat
-│       ├── package.json
-│       ├── vite.config.js
-│       └── src/
-│           ├── components/             # Navbar, Footer, ScrollReveal, Modal
-│           └── pages/                  # Home, Schedule, Classes, Instructors, Pricing, Workshops, Contact, Login, Register, Admin
+│   ├── zenflow-yoga/                   # React 18 + Vite
+│   │   └── src/pages/                  # Home, Schedule, Classes, Instructors, Pricing, Workshops, Contact, Login, Register, Admin
+│   │
+│   ├── pristine-cleaning/              # Vue 3 + Vite
+│   │   └── src/views/                  # Home, Services, Pricing, Booking, Gallery, About, Contact, Login, Register, Admin
+│   │
+│   ├── spice-bazaar-grocery/           # React 18 + Vite
+│   │   └── src/pages/                  # Home, Products, Deals, Recipes, About, Catering, Contact, Login, Register, Admin
+│   │
+│   ├── harmony-music-academy/          # Vue 3 + Vite
+│   │   └── src/views/                  # Home, Programs, Instructors, Schedule, Recitals, About, Contact, Login, Register, Admin
+│   │
+│   ├── evergreen-landscaping/          # React 18 + Vite
+│   │   └── src/pages/                  # Home, Services, Portfolio, Estimates, Seasonal, About, Contact, Login, Register, Admin
+│   │
+│   └── northgate-law/                  # React 18 + Vite
+│       └── src/pages/                  # Home, PracticeAreas, Attorneys, Results, Resources, About, Contact, Login, Register, Admin
 │
 └── .github/
     └── workflows/
@@ -367,4 +403,4 @@ S3 static hosting costs for demo sites are minimal:
 | S3 Requests | ~$0.004/10,000 GET requests |
 | Data Transfer | First 100 GB/month free |
 
-For demo sites with light traffic, **total cost is essentially $0/month** within AWS Free Tier. Even outside free tier, expect less than $1/month for all six sites combined.
+For demo sites with light traffic, **total cost is essentially $0/month** within AWS Free Tier. Even outside free tier, expect less than $1/month for all eleven sites combined.

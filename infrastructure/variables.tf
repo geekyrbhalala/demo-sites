@@ -39,3 +39,33 @@ variable "zenflow_yoga_bucket_name" {
   type        = string
   default     = "zenflow-yoga-demo"
 }
+
+variable "pristine_cleaning_bucket_name" {
+  description = "S3 bucket name for Pristine Cleaning Co. website"
+  type        = string
+  default     = "pristine-cleaning-demo"
+}
+
+variable "spice_bazaar_bucket_name" {
+  description = "S3 bucket name for Spice Bazaar Grocery website"
+  type        = string
+  default     = "spice-bazaar-grocery-demo"
+}
+
+variable "harmony_music_bucket_name" {
+  description = "S3 bucket name for Harmony Music Academy website"
+  type        = string
+  default     = "harmony-music-academy-demo"
+}
+
+variable "evergreen_landscaping_bucket_name" {
+  description = "S3 bucket name for Evergreen Landscaping website"
+  type        = string
+  default     = "evergreen-landscaping-demo"
+}
+
+variable "northgate_law_bucket_name" {
+  description = "S3 bucket name for Northgate Law website"
+  type        = string
+  default     = "northgate-law-demo"
+}

@@ -27,3 +27,28 @@ output "zenflow_website_url" {
   description = "Zenflow Yoga & Wellness website URL"
   value       = "http://${module.zenflow_yoga.website_endpoint}"
 }
+
+output "pristine_cleaning_url" {
+  description = "Pristine Cleaning Co. website URL"
+  value       = "http://${module.pristine_cleaning.website_endpoint}"
+}
+
+output "spice_bazaar_url" {
+  description = "Spice Bazaar Grocery website URL"
+  value       = "http://${module.spice_bazaar.website_endpoint}"
+}
+
+output "harmony_music_url" {
+  description = "Harmony Music Academy website URL"
+  value       = "http://${module.harmony_music.website_endpoint}"
+}
+
+output "evergreen_landscaping_url" {
+  description = "Evergreen Landscaping website URL"
+  value       = "http://${module.evergreen_landscaping.website_endpoint}"
+}
+
+output "northgate_law_url" {
+  description = "Northgate Law website URL"
+  value       = "http://${module.northgate_law.website_endpoint}"
+}
